@@ -1,0 +1,30 @@
+server:
+  port: 8087
+
+#开启日志
+logging:
+  level:
+    com:
+      gdy:
+        graduate: debug
+#数据源
+spring:
+  datasource:
+    druid:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/zz?useUnicode=true&characterEncoding=utf-8
+      username: postgres
+      password: 2233
+
+
+#mybatis
+mybatis-plus:
+#Mapper文件存放位置classpath：指向的是resource文件夹
+  #classpath：只会到你的class路径中查找找文件。
+  #mapper-locations: classpath:/mapper/*.xml
+  #classpath*：不仅包含class路径，还包括jar文件中（class路径）进行查找。
+  mapper-locations: classpath*:com/gdy/graduate/dao/mapping/*.xml
+#数据库驼峰命名
+  map-underscore-to-camel-case: true
+#实体类（在mapper文件中写实体类的时候不用写.xml）
+  type-aliases-package: com.gdy.graduate.entity
