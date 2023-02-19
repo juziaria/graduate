@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 企业控制层
  */
 @RestController
-@RequestMapping("/gdy/student")
+@RequestMapping("/gdy/company")
 @Api(tags = "企业端")
 public class CompanyController  {
 }

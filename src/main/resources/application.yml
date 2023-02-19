@@ -1,5 +1,5 @@
 server:
-  port: 8087
+  port: 9005
 
 #开启日志
 logging:
@@ -12,9 +12,15 @@ spring:
   datasource:
     druid:
       driver-class-name: org.postgresql.Driver
+      #数据库地址修改
       url: jdbc:postgresql://localhost:5432/zz?useUnicode=true&characterEncoding=utf-8
       username: postgres
       password: 2233
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
 
 
 #mybatis
@@ -24,6 +30,7 @@ mybatis-plus:
   #mapper-locations: classpath:/mapper/*.xml
   #classpath*：不仅包含class路径，还包括jar文件中（class路径）进行查找。
   mapper-locations: classpath*:com/gdy/graduate/dao/mapping/*.xml
+  #mapper-locations: classpath*:com.gdy.graduate/dao/mapping/*.xml
 #数据库驼峰命名
   map-underscore-to-camel-case: true
 #实体类（在mapper文件中写实体类的时候不用写.xml）

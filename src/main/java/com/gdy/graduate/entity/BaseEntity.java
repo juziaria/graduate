@@ -1,4 +1,4 @@
-package com.gdy.graduate.base;
+package com.gdy.graduate.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -15,9 +15,7 @@ public class BaseEntity implements Serializable {
     /**
      *
      */
-    @TableField(
-            fill = FieldFill.INSERT
-    )
+
     @ApiModelProperty(value = "创建人")
       private Long createUser;
 

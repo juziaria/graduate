@@ -2,5 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gdy.graduate.dao.StudentMapper">
 
+    <select id="findAllStudent" resultType="com.gdy.graduate.entity.Student">
+        select *
+        from  student
+        <where>
+            (deleted !=1 OR deleted is NULL)
+        </where>
+    </select>
 
+    <update id="InsertStuPwd" parameterType="com.gdy.graduate.entity.Student">
+        update student
+        <set>
+            student_pwd=#{stuPwd},modified_time=#{date},modified_user=1101008,salt=#{salt}
+        </set>
+        where id =#{id}
+    </update>
 </mapper>
