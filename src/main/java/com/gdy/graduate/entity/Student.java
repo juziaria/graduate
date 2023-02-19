@@ -2,14 +2,12 @@ package com.gdy.graduate.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
 
 import java.io.Serializable;
 
 /**
  * springboot约定大于配置，默认配置
  */
-@Data
 @ApiModel("学生实体类")
 public class Student extends BaseEntity implements Serializable {
 
