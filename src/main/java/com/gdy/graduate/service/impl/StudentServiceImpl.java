@@ -1,15 +1,13 @@
 package com.gdy.graduate.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gdy.graduate.dao.StudentMapper;
 import com.gdy.graduate.dto.ChangePwdDto;
 import com.gdy.graduate.entity.BaseEntity;
 import com.gdy.graduate.entity.Student;
 import com.gdy.graduate.service.StudentService;
-import com.gdy.graduate.service.ex.StudentException.StudentNotFindEx;
-import com.gdy.graduate.service.ex.StudentException.StudnetPwdEx;
+import com.gdy.graduate.service.ex.StudentNotFindEx;
+import com.gdy.graduate.service.ex.StudentPwdEx;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -60,7 +58,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper,Student> imple
         //3.判断密码是否正确
         String loginPwd = getMD5(studentPwd,res.getSalt());
       if(!res.getStudentPwd().equals(loginPwd)){
-          throw new StudnetPwdEx("输入的密码错误");
+          throw new StudentPwdEx("输入的密码错误");
         }
         Date date = new Date();
         studentService.lambdaUpdate().eq(Student::getStudentPwd,loginPwd)
@@ -82,7 +80,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper,Student> imple
         String ressalt = res.getSalt();
         String encryptPwd1 = getMD5(oldPwd,ressalt);
         if(!encryptPwd1.equals(res.getStudentPwd())){
-            throw new StudnetPwdEx("旧密码输入错误");
+            throw new StudentPwdEx("旧密码输入错误");
         }
         String newsalt = UUID.randomUUID().toString().toUpperCase();
         String newPwd = changePwdDto.getNewStuPwd();

@@ -1,4 +1,4 @@
-package com.gdy.graduate.service.ex.StudentException;
+package com.gdy.graduate.service.ex;
 
 import com.gdy.graduate.service.ex.ServiceException;
 

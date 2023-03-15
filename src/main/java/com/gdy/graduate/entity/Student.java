@@ -2,7 +2,9 @@ package com.gdy.graduate.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -10,6 +12,8 @@ import java.io.Serializable;
  * springboot约定大于配置，默认配置
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel("学生实体类")
 public class Student extends BaseEntity implements Serializable {
 

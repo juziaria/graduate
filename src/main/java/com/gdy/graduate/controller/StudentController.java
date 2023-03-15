@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/gdy/student")
 @Api(tags = "学生端")
-public class StudentController{
+public class StudentController extends BaseController{
     @Autowired
     private StudentService studentService;
 
@@ -22,7 +22,7 @@ public class StudentController{
      * 登录
      */
     @ApiOperation("登录")
-    @GetMapping("/login/{id}/{pwd}")
+    @PostMapping("/login/{id}/{pwd}")
     public Student login(@PathVariable Long id ,@PathVariable String pwd){
         return  studentService.login(id, pwd);
     }
